@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: AER_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/AER_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/AER/AER_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: boot, dynlm, effects, fGarch, forecast, foreign, ineq, KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np, plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection, scatterplot3d, strucchange, systemfit, truncreg, tseries, urca, vars
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
