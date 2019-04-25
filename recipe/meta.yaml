@@ -1,4 +1,4 @@
-{% set version = '1.2-5' %}
+{% set version = '1.2-6' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,19 +11,20 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/AER_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/AER/AER_{{ version }}.tar.gz
-  sha256: ef0cf14ff9d3de2b97e5855243426cc918808eb1011f0e2253b3b00043927a62
+  sha256: 653c3a2d253819e0ce8c2cf12cff2ab222bf3d19dbf382b7c4b4c3d762469474
 
 build:
   merge_build_host: True  # [win]
   # If this is a new build for the same version, increment the build number.
   number: 0
+  noarch: generic
 
   # This is required to make R link correctly on Linux.
   rpaths:
     - lib/R/lib/
     - lib/
 
-# Suggests: boot, dynlm, effects, fGarch, forecast, foreign, ineq, KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np, plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection, scatterplot3d, strucchange, systemfit, truncreg, tseries, urca, vars
+# Suggests: boot, dynlm, effects, fGarch, forecast, foreign, ineq, KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np, plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection, scatterplot3d, strucchange, systemfit (>= 1.1-20), truncreg, tseries, urca, vars
 requirements:
   build:
     - {{posix}}zip               # [win]
@@ -33,7 +34,7 @@ requirements:
     - r-formula >=0.2_0
     - r-car >=2.0_19
     - r-lmtest
-    - r-sandwich
+    - r-sandwich >=2.4_0
     - r-survival >=2.37_5
     - r-zoo
 
@@ -42,7 +43,7 @@ requirements:
     - r-formula >=0.2_0
     - r-car >=2.0_19
     - r-lmtest
-    - r-sandwich
+    - r-sandwich >=2.4_0
     - r-survival >=2.37_5
     - r-zoo
 
@@ -75,22 +76,22 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: AER
-# Version: 1.2-5
-# Date: 2017-01-06
+# Version: 1.2-6
+# Date: 2018-12-27
 # Title: Applied Econometrics with R
-# Authors@R: c(person(given = "Christian", family = "Kleiber", role = "aut", email = "Christian.Kleiber@unibas.ch"), person(given = "Achim", family = "Zeileis", role = c("aut", "cre"), email = "Achim.Zeileis@R-project.org"))
+# Authors@R: c(person(given = "Christian", family = "Kleiber", role = "aut", email = "Christian.Kleiber@unibas.ch"), person(given = "Achim", family = "Zeileis", role = c("aut", "cre"), email = "Achim.Zeileis@R-project.org", comment = c(ORCID = "0000-0003-0918-3766")))
 # Description: Functions, data sets, examples, demos, and vignettes for the book Christian Kleiber and Achim Zeileis (2008), Applied Econometrics with R, Springer-Verlag, New York. ISBN 978-0-387-77316-2. (See the vignette "AER" for a package overview.)
 # LazyLoad: yes
-# Depends: R (>= 2.13.0), car (>= 2.0-19), lmtest, sandwich, survival (>= 2.37-5), zoo
-# Suggests: boot, dynlm, effects, fGarch, forecast, foreign, ineq, KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np, plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection, scatterplot3d, strucchange, systemfit, truncreg, tseries, urca, vars
+# Depends: R (>= 2.13.0), car (>= 2.0-19), lmtest, sandwich (>= 2.4-0), survival (>= 2.37-5), zoo
+# Suggests: boot, dynlm, effects, fGarch, forecast, foreign, ineq, KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np, plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection, scatterplot3d, strucchange, systemfit (>= 1.1-20), truncreg, tseries, urca, vars
 # Imports: stats, Formula (>= 0.2-0)
 # License: GPL-2 | GPL-3
 # NeedsCompilation: no
-# Packaged: 2017-01-05 23:26:19 UTC; zeileis
-# Author: Christian Kleiber [aut], Achim Zeileis [aut, cre]
+# Packaged: 2018-12-27 14:04:22 UTC; zeileis
+# Author: Christian Kleiber [aut], Achim Zeileis [aut, cre] (<https://orcid.org/0000-0003-0918-3766>)
 # Maintainer: Achim Zeileis <Achim.Zeileis@R-project.org>
 # Repository: CRAN
-# Date/Publication: 2017-01-07 00:11:57
+# Date/Publication: 2018-12-28 11:39:38 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
